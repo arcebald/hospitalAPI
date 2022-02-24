@@ -2,6 +2,7 @@ package com.hospital.hospitalapi.model;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "doctors")
@@ -22,7 +23,7 @@ public class Doctor {
     @LazyCollection(LazyCollectionOption.FALSE)
     private List<Patient> patientList;
 
-    @OneToMany(mappedBy = "test");
+    @OneToMany(mappedBy = "doctor")
     @LazyCollection(LazyCollectionOption.FALSE)
     private List<Test> testList;
 

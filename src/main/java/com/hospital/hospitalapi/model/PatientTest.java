@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "tests")
-public class Test {
+public class PatientTest {
 
     @Id
     @Column
@@ -35,10 +35,10 @@ public class Test {
     @JoinColumn(name = "doctor_id")
     private Doctor doctor;
 
-    public Test() {
+    public PatientTest() {
     }
 
-    public Test(Long id, String name, String testDate, String testTime, String testResult, Patient patient, Doctor doctor) {
+    public PatientTest(Long id, String name, String testDate, String testTime, String testResult, Patient patient, Doctor doctor) {
         this.id = id;
         this.name = name;
         this.testDate = testDate;

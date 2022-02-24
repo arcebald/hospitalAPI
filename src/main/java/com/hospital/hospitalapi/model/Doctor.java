@@ -25,17 +25,17 @@ public class Doctor {
 
     @OneToMany(mappedBy = "doctor")
     @LazyCollection(LazyCollectionOption.FALSE)
-    private List<Test> testList;
+    private List<PatientTest> patientTestList;
 
     public Doctor() {
     }
 
-    public Doctor(Long id, String doctorName, String specialization, List<Patient> patientList, List<Test> testList) {
+    public Doctor(Long id, String doctorName, String specialization, List<Patient> patientList, List<PatientTest> patientTestList) {
         this.id = id;
         this.doctorName = doctorName;
         this.specialization = specialization;
         this.patientList = patientList;
-        this.testList = testList;
+        this.patientTestList = patientTestList;
     }
 
     public Long getId() {
@@ -70,22 +70,13 @@ public class Doctor {
         this.patientList = patientList;
     }
 
-    public List<Test> getTestList() {
-        return testList;
+    public List<PatientTest> getTestList() {
+        return patientTestList;
     }
 
-    public void setTestList(List<Test> testList) {
-        this.testList = testList;
+    public void setTestList(List<PatientTest> patientTestList) {
+        this.patientTestList = patientTestList;
     }
 
-    @Override
-    public String toString() {
-        return "Doctor{" +
-                "id=" + id +
-                ", doctorName='" + doctorName + '\'' +
-                ", specialization='" + specialization + '\'' +
-                ", patientList=" + patientList +
-                ", testList=" + testList +
-                '}';
-    }
+
 }

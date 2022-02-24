@@ -30,20 +30,20 @@ public class Patient {
     @JsonIgnore
     private Doctor doctor;
 
-    @OneToMany(mappedBy = "test", orphanRemoval = true)
+    @OneToMany(mappedBy = "patient", orphanRemoval = true)
     @LazyCollection(LazyCollectionOption.FALSE)
-    private List<Test> testsList;
+    private List<PatientTest> patientTestList;
 
     public Patient() {
     }
 
-    public Patient(Long id, String name, String insurance, String dateAdmited, Doctor doctor, List<Test> testsList) {
+    public Patient(Long id, String name, String insurance, String dateAdmited, Doctor doctor, List<PatientTest> testsList) {
         this.id = id;
         this.name = name;
         this.insurance = insurance;
         this.dateAdmited = dateAdmited;
         this.doctor = doctor;
-        this.testsList = testsList;
+        this.patientTestList = testsList;
     }
 
     public Long getId() {
@@ -86,11 +86,11 @@ public class Patient {
         this.doctor = doctor;
     }
 
-    public List<Test> getTestsList() {
-        return testsList;
+    public List<PatientTest> getTestsList() {
+        return patientTestList;
     }
 
-    public void setTestsList(List<Test> testsList) {
-        this.testsList = testsList;
+    public void setTestsList(List<PatientTest> testsList) {
+        this.patientTestList = testsList;
     }
 }

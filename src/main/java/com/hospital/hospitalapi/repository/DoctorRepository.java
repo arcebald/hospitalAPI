@@ -3,8 +3,10 @@ package com.hospital.hospitalapi.repository;
 import com.hospital.hospitalapi.model.Doctor;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface DoctorRepository extends JpaRepository<Doctor, Long> {
-    boolean existsByName(String doctorName);
+import java.util.List;
 
-    Doctor findDoctorByName(String name);
+public interface DoctorRepository extends JpaRepository<Doctor, Long> {
+    boolean existsByDoctorName(String doctorName);
+
+    Doctor findDoctorByDoctorName(String name);
 }

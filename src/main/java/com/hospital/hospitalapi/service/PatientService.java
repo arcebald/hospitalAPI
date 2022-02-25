@@ -120,6 +120,30 @@ public class PatientService {
         return patientTestRepository.save(patientTest.get());
     }
 
+//    public void deleteTeamPlayer(Long teamId, Long playerId) {
+//        Optional<Team> team = teamRepository.findById(teamId);
+//        if (team.isEmpty()) {
+//            throw new InformationNotFoundException("team with id " + teamId + " does not exist");
+//        }
+//        Optional<Player> player = playerRepository.findById(teamId).stream().filter(p -> p.getId().equals(playerId)).findFirst();
+//        if (!player.isPresent()) {
+//            throw new InformationNotFoundException(" player with id " + playerId + " does not exist");
+//        }
+//        playerRepository.deleteById(player.get().getId());
+//    }
+
+    public void deletePatientTest(Long patientId, Long testId) {
+        Optional<Patient> patient = patientRepository.findById(patientId);
+            if(patient.isEmpty()){
+                throw new InformationNotFoundException("patient with id " + patientId+ " does not exist");
+            }
+        Optional<PatientTest> test = patientTestRepository.findById(testId).stream().filter(p -> p.getId().equals(testId)).findFirst();
+            if (!test.isPresent()){
+                throw new InformationNotFoundException(" test with id "+testId+ " does not exist");
+            }
+            patientTestRepository.deleteById(test.get().getId());
+    }
+
 
 }
 

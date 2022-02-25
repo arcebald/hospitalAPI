@@ -99,5 +99,27 @@ public class PatientService {
         }
         return patientTest.get();
     }
+
+    public PatientTest updatePatientTest(Long patientId, Long testId, PatientTest testObject){
+        Optional<Patient> patient = patientRepository.findById(patientId);
+        if(patient.isEmpty()){
+            throw new InformationNotFoundException("patient with id " + patientId+ " does not exist");
+        }
+        Optional<PatientTest> patientTest = patientTestRepository.findById(testId).stream().filter(p -> p.getId().equals(testId)).findFirst();
+        if(!patientTest.isPresent()){
+            throw new InformationNotFoundException("test with id " + testId + " does not exist");
+        }
+        Optional<PatientTest> oldTestName = patientTestRepository.findByName(testObject.getName());
+        if(!oldTestName.isEmpty()){
+            throw new InformationExistsException("test with " + oldTestName+ " already exists");
+        }
+        patientTest.get().setName(testObject.getName());
+        patientTest.get().setTestTime(testObject.getTestTime());
+        patientTest.get().setTestDate(testObject.getTestDate());
+        patientTest.get().setTestResult(testObject.getTestResult());
+        return patientTestRepository.save(patientTest.get());
+    }
+
+
 }
 

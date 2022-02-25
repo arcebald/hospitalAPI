@@ -56,5 +56,11 @@ public class PatientController {
     return patientService.updatePatientTest(patientId, testId, testObject);
   }
 
+  @DeleteMapping("/patients/{patientId}/tests/{testId}/")
+  public void deletePatientTest(@PathVariable(value = "patientId") Long patientId,
+                                @PathVariable(value = "testId") Long testId){
+    patientService.deletePatientTest(patientId, testId);
+  }
+
 
 }

@@ -45,6 +45,10 @@ public class PatientController {
   public List<PatientTest> getPatientTests(@PathVariable(value = "patientId") Long patientId){
     return patientService.getPatientTests(patientId);
   }
+  @GetMapping("/patients/{patientId}/tests/{testId}")
+  public PatientTest getPatientTest(@PathVariable(value = "patientId") Long patientId, @PathVariable(value = "testId") Long testId){
+    return patientService.getPatientTest(patientId, testId);
+  }
 
 
 }

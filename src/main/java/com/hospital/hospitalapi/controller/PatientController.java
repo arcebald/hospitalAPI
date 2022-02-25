@@ -1,5 +1,6 @@
 package com.hospital.hospitalapi.controller;
 import com.hospital.hospitalapi.model.Patient;
+import com.hospital.hospitalapi.model.PatientTest;
 import com.hospital.hospitalapi.service.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -35,5 +36,15 @@ public class PatientController {
   public Patient updatePatient(@PathVariable(value = "patientId") Long patientId, @RequestBody Patient patientObject){
     return patientService.updatePatient(patientId, patientObject);
   }
+
+  @PostMapping("/patients/{patientId}/tests/")
+  public PatientTest createPatientTest(@PathVariable(value = "patientId") Long patientId, @RequestBody PatientTest patientTestObject){
+    return patientService.createPatientTest(patientId, patientTestObject);
+  }
+  @GetMapping("/patients/{patientId}/tests/")
+  public List<PatientTest> getPatientTests(@PathVariable(value = "patientId") Long patientId){
+    return patientService.getPatientTests(patientId);
+  }
+
 
 }

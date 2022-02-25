@@ -3,7 +3,9 @@ package com.hospital.hospitalapi.service;
 import com.hospital.hospitalapi.exceptions.InformationExistsException;
 import com.hospital.hospitalapi.exceptions.InformationNotFoundException;
 import com.hospital.hospitalapi.model.Patient;
+import com.hospital.hospitalapi.model.PatientTest;
 import com.hospital.hospitalapi.repository.PatientRepository;
+import com.hospital.hospitalapi.repository.PatientTestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +19,13 @@ public class PatientService {
     @Autowired
     public void setPatientRepository(PatientRepository patientRepository){
         this.patientRepository = patientRepository;
+    }
+
+    private PatientTestRepository patientTestRepository;
+
+    @Autowired
+    public void setPatientTestRepository(PatientTestRepository patientTestRepository){
+        this.patientTestRepository = patientTestRepository;
     }
 
     public List<Patient> getAllPatients(){
@@ -57,6 +66,38 @@ public class PatientService {
             patient.get().setInsurance(patientObject.getInsurance());
             return patientRepository.save(patient.get());
         }
+    }
+    public PatientTest createPatientTest(Long patientId, PatientTest testObject){
+        Optional<Patient> patient = patientRepository.findById(patientId);
+        if(patient.isEmpty()){
+            throw new InformationNotFoundException("patient with id" + patientId + " does not exist");
+        }
+        Optional<PatientTest> patientTest = patientTestRepository.findByName(testObject.getName());
+        if(patientTest.isPresent()){
+            throw new InformationExistsException("Test with name " + patientTest.get().getName()+ " already exists");
+        }
+        testObject.setPatient(patient.get());
+        return patientTestRepository.save(testObject);
+    }
+
+    public List<PatientTest> getPatientTests(Long patientId) {
+        Optional<Patient> patient = patientRepository.findById(patientId);
+        if(patient.isEmpty()){
+            throw new InformationNotFoundException("patient with id" + patientId+ " does not exist");
+        }
+        return patient.get().getTestsList();
+    }
+
+    public PatientTest getPatientTest(Long patientId, Long testId){
+        Optional<Patient> patient = patientRepository.findById(patientId);
+        if(patient.isEmpty()){
+            throw new InformationNotFoundException("patient with id "+patientId+ " does not exist");
+        }
+        Optional<PatientTest> patientTest = patientTestRepository.findByPatientId(patientId).stream().filter(p -> p.getId().equals(testId)).findFirst();
+        if(!patient.isPresent()){
+            throw new InformationNotFoundException("Test with id " + testId + " does not exist");
+        }
+        return patientTest.get();
     }
 }
 

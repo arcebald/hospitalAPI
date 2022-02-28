@@ -14,7 +14,7 @@
     <name>hospitalAPI</name>
     <description>hospitalAPI</description>
     <properties>
-        <java.runtime.version>17</java.runtime.version>
+        <java.version>17</java.version>
     </properties>
     <dependencies>
         <dependency>

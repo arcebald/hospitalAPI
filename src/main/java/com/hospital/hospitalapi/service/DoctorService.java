@@ -3,6 +3,8 @@ package com.hospital.hospitalapi.service;
 import com.hospital.hospitalapi.exceptions.InformationExistsException;
 import com.hospital.hospitalapi.exceptions.InformationNotFoundException;
 import com.hospital.hospitalapi.model.Doctor;
+import com.hospital.hospitalapi.model.Patient;
+import com.hospital.hospitalapi.model.PatientTest;
 import com.hospital.hospitalapi.repository.DoctorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -58,5 +60,14 @@ public class DoctorService {
             doctor.get().setSpecialization(doctorObject.getSpecialization());
             return doctorRepository.save(doctor.get());
         }
+    }
+
+    public List<Patient> getDoctorPatients(Long doctorId) {
+        Optional<Doctor> doctor = doctorRepository.findById(doctorId);
+        if(doctor.isEmpty()){
+            throw new InformationNotFoundException("doctor with id " + doctorId+ " does not exist");
+
+        }
+        return doctor.get().getPatientList();
     }
 }

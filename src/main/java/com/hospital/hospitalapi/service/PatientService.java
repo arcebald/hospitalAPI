@@ -64,6 +64,7 @@ public class PatientService {
             patient.get().setName(patientObject.getName());
             patient.get().setDateAdmited(patientObject.getDateAdmited());
             patient.get().setInsurance(patientObject.getInsurance());
+            patient.get().setTestsList(patientObject.getTestsList());
             return patientRepository.save(patient.get());
         }
     }
@@ -119,18 +120,6 @@ public class PatientService {
         patientTest.get().setTestResult(testObject.getTestResult());
         return patientTestRepository.save(patientTest.get());
     }
-
-//    public void deleteTeamPlayer(Long teamId, Long playerId) {
-//        Optional<Team> team = teamRepository.findById(teamId);
-//        if (team.isEmpty()) {
-//            throw new InformationNotFoundException("team with id " + teamId + " does not exist");
-//        }
-//        Optional<Player> player = playerRepository.findById(teamId).stream().filter(p -> p.getId().equals(playerId)).findFirst();
-//        if (!player.isPresent()) {
-//            throw new InformationNotFoundException(" player with id " + playerId + " does not exist");
-//        }
-//        playerRepository.deleteById(player.get().getId());
-//    }
 
     public void deletePatientTest(Long patientId, Long testId) {
         Optional<Patient> patient = patientRepository.findById(patientId);

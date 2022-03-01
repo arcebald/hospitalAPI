@@ -10,11 +10,6 @@ The dependency section contains the dependencies I added to the project namely S
 - Pom.xml file dependencies
 ![dependencies.png](images/dependencies.png)
 
-## Configuring PostgreSQL, JPA, and Hibernate
-In the resources folder I changed I added a new file application-dev.properties to hold the configurations
-- Application-dev.properties file
-![properties.png](images/properties.png)
-
 ## Project Structure
 1.  Controller: This package will house the LeagueController and TeamController for calling the right Service
 2.  Exceptions: This package holds the custom exceptions

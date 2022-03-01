@@ -8,12 +8,8 @@ This project involved using a Spring Boot REST API for a Hospital Management Sys
 ## Pom Dependencies
 The dependency section contains the dependencies I added to the project namely Spring Data JPA, PostgreSQL driver, and SpringWeb.
 - Pom.xml file dependencies
-![dependencies.png](images/dependencies.png)
 
-## Configuring PostgreSQL, JPA, and Hibernate
-In the resources folder I changed I added a new file application-dev.properties to hold the configurations
-- Application-dev.properties file
-![properties.png](images/properties.png)
+![dependencies.png](images/dependencies.png)
 
 ## Project Structure
 1.  Controller: This package will house the LeagueController and TeamController for calling the right Service
@@ -23,3 +19,7 @@ In the resources folder I changed I added a new file application-dev.properties 
 5.  Service: This package holds the business logic
 
 ![structure.png](images/structure.png)
+
+## Entity Relationship Diagram (ERD):
+
+![ERD.png](images/ERD.png)

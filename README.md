@@ -23,3 +23,14 @@ The dependency section contains the dependencies I added to the project namely S
 ## Entity Relationship Diagram (ERD):
 
 ![ERD.png](images/ERD.png)
+
+## User Stories
+
+| |
+| --- |
+|1. A patient can have many tests
+|2. One doctor can have many patients
+|3. As a user, I would like to view a list of doctors.
+|4. As a user, I would like to add a doctor.
+|5. As a user, I would like to assign a doctor to a patient.
+|6. As a user, I would like to modify the tests results.

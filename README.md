@@ -8,6 +8,7 @@ This project involved using a Spring Boot REST API for a Hospital Management Sys
 ## Pom Dependencies
 The dependency section contains the dependencies I added to the project namely Spring Data JPA, PostgreSQL driver, and SpringWeb.
 - Pom.xml file dependencies
+
 ![dependencies.png](images/dependencies.png)
 
 ## Project Structure
@@ -18,3 +19,7 @@ The dependency section contains the dependencies I added to the project namely S
 5.  Service: This package holds the business logic
 
 ![structure.png](images/structure.png)
+
+## Entity Relationship Diagram (ERD):
+
+![ERD.png](images/ERD.png)

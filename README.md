@@ -56,4 +56,4 @@ The dependency section contains the dependencies I added to the project namely S
 | PUT _/api/patients/{patientId}/_ | PUT update a patient by ID
 | POST _/api/patients/{patientId}/tests/_ | POST tests by patient ID
 | GET _/api/patients/{patientId}/tests/_ | GET tests by patient ID
-| DELETE _/api/patients/{patientId}/tests/{testId}/_ GET patient test by ID
+| DELETE _/api/patients/{patientId}/tests/{testId}/_ | GET patient test by ID

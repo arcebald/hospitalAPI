@@ -34,3 +34,26 @@ The dependency section contains the dependencies I added to the project namely S
 |4. As a user, I would like to add a doctor.
 |5. As a user, I would like to assign a doctor to a patient.
 |6. As a user, I would like to modify the tests results.
+
+## System Tools Used
+
+- Spring Boot
+- Apache Maven
+- PostgreSQL
+- Lucid App
+- IntelliJ IDEA/Java 17
+- Postman
+
+| ENDPOINT | FUNCTIONALITY |
+| --- | :--- |
+| GET _/api/doctors/_ | GET all Doctors
+| POST _/api/doctors/_ | POST a new doctor
+| DELETE _/api/doctors/{doctorId}/_ | DELETE a doctor by ID
+| PUT _/api/doctors/{doctorId}/_ | PUT update a doctor by ID
+| POST _/api/patients/_ | POST a new patient
+| GET _/api/patients/_ | GET all Patients
+| DELETE _/api/patients/{patientId}/_ | DELETE a patient by ID
+| PUT _/api/patients/{patientId}/_ | PUT update a patient by ID
+| POST _/api/patients/{patientId}/tests/_ | POST tests by patient ID
+| GET _/api/patients/{patientId}/tests/_ | GET tests by patient ID
+| DELETE _/api/patients/{patientId}/tests/{testId}/_ | GET patient test by ID

@@ -31,6 +31,7 @@ public class Patient {
     private Doctor doctor;
 
     @OneToMany(mappedBy = "patient", orphanRemoval = true)
+    //some comments
     @LazyCollection(LazyCollectionOption.FALSE)
     private List<PatientTest> patientTestList;
 
